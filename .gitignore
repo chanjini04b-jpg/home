@@ -1,0 +1,41 @@
+# 제주 곶자왈아이파크 매물 사이트
+
+## Git 무시 파일들
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 에디터 파일
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 로그 파일
+*.log
+
+# 임시 파일
+*.tmp
+*.temp
+
+# 백업 파일
+*.bak
+*.backup
+
+# 캐시 파일
+.cache/
+
+# Node.js (만약 나중에 사용할 경우)
+node_modules/
+npm-debug.log*
+
+# 이미지 편집 원본 파일 (용량이 클 경우)
+# *.psd
+# *.ai
+
+# 개발용 메모 파일
+notes.txt
+TODO.md
