@@ -1,47 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     
     <!-- 메인 페이지 -->
     <url>
-        <loc>https://[사용자명].github.io/[저장소명]/</loc>
+        <loc>https://chanjini04b-jpg.github.io/home/</loc>
         <lastmod>2025-11-03</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
         
         <!-- 이미지 정보 -->
         <image:image>
-            <image:loc>https://[사용자명].github.io/[저장소명]/images/living-room.jpg</image:loc>
+            <image:loc>https://chanjini04b-jpg.github.io/home/images/living-room.jpg</image:loc>
             <image:title>제주 곶자왈아이파크 거실</image:title>
             <image:caption>넓은 거실과 아름다운 뷰</image:caption>
         </image:image>
         
         <image:image>
-            <image:loc>https://[사용자명].github.io/[저장소명]/images/kitchen.jpg</image:loc>
+            <image:loc>https://chanjini04b-jpg.github.io/home/images/kitchen.jpg</image:loc>
             <image:title>제주 곶자왈아이파크 주방</image:title>
             <image:caption>깔끔하고 모던한 주방</image:caption>
         </image:image>
         
         <image:image>
-            <image:loc>https://[사용자명].github.io/[저장소명]/images/bedroom.jpg</image:loc>
+            <image:loc>https://chanjini04b-jpg.github.io/home/images/bedroom.jpg</image:loc>
             <image:title>제주 곶자왈아이파크 침실</image:title>
             <image:caption>편안한 침실 공간</image:caption>
         </image:image>
         
         <!-- 동영상 정보 -->
         <video:video>
-            <video:thumbnail_loc>https://[사용자명].github.io/[저장소명]/images/living-room.jpg</video:thumbnail_loc>
+            <video:thumbnail_loc>https://chanjini04b-jpg.github.io/home/images/living-room.jpg</video:thumbnail_loc>
             <video:title>제주 곶자왈아이파크 매물 투어</video:title>
             <video:description>집주인이 직접 촬영한 실제 매물 투어 영상</video:description>
-            <video:content_loc>https://[사용자명].github.io/[저장소명]/images/apartment-tour.mp4</video:content_loc>
+            <video:content_loc>https://chanjini04b-jpg.github.io/home/images/apartment-tour.mp4</video:content_loc>
             <video:duration>180</video:duration>
         </video:video>
     </url>
     
     <!-- 갤러리 섹션 -->
     <url>
-        <loc>https://[사용자명].github.io/[저장소명]/#gallery</loc>
+        <loc>https://chanjini04b-jpg.github.io/home/#gallery</loc>
         <lastmod>2025-11-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -49,7 +49,7 @@
     
     <!-- 동영상 투어 섹션 -->
     <url>
-        <loc>https://[사용자명].github.io/[저장소명]/#video-tour</loc>
+        <loc>https://chanjini04b-jpg.github.io/home/#video-tour</loc>
         <lastmod>2025-11-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -57,7 +57,7 @@
     
     <!-- 위치 정보 섹션 -->
     <url>
-        <loc>https://[사용자명].github.io/[저장소명]/#location</loc>
+        <loc>https://chanjini04b-jpg.github.io/home/#location</loc>
         <lastmod>2025-11-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -65,7 +65,7 @@
     
     <!-- 연락처 섹션 -->
     <url>
-        <loc>https://[사용자명].github.io/[저장소명]/#contact</loc>
+        <loc>https://chanjini04b-jpg.github.io/home/#contact</loc>
         <lastmod>2025-11-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
