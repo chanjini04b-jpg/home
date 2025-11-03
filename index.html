@@ -478,9 +478,9 @@
                     <!-- 화장실 및 파우더룸 -->
                     <img src="images/bathroom.jpg" alt="메인 화장실 - 깔끔한 디자인" class="rounded-xl" loading="lazy">
                     <img src="images/bathroom (2).jpg" alt="화장실 다른 각도" class="rounded-xl" loading="lazy">
-                    <img src="images/dress&powder-room.jpg" alt="드레스룸 및 파우더룸" class="rounded-xl" loading="lazy">
-                    <img src="images/dress&powder-room(1).jpg" alt="드레스룸 수납공간" class="rounded-xl" loading="lazy">
-                    <img src="images/dress&powder-room(2).jpg" alt="파우더룸 세면대" class="rounded-xl" loading="lazy">
+                    <img src="images/dress&amp;powder-room.jpg" alt="드레스룸 및 파우더룸" class="rounded-xl" loading="lazy">
+                    <img src="images/dress&amp;powder-room(1).jpg" alt="드레스룸 수납공간" class="rounded-xl" loading="lazy">
+                    <img src="images/dress&amp;powder-room(2).jpg" alt="파우더룸 세면대" class="rounded-xl" loading="lazy">
                     
                     <!-- 발코니 및 베란다 -->
                     <img src="images/veranda.jpg" alt="베란다 - 바베큐 공간 최적화됨" class="rounded-xl" loading="lazy">
@@ -722,7 +722,7 @@
                         
                         <div class="p-4 bg-yellow-100 rounded-lg border-l-4 border-yellow-400">
                             <div class="font-bold text-yellow-800">주소 정보</div>
-                            <div class="text-sm text-gray-600 mt-1">제주도 제주시 녹차분재로 609</div>
+                            <div class="text-sm text-gray-600 mt-1">제주특별자치도 제주시 한경면 저지리 2877</div>
                             <div class="text-xs text-yellow-600 mt-2">✓ 곶자왈 자연환경 인접 위치</div>
                         </div>
                     </div>
@@ -832,6 +832,7 @@
             <div class="bg-white p-6 rounded-xl shadow-lg inline-block">
                 <h3 class="text-lg font-bold mb-4">📱 QR 코드로 빠른 공유</h3>
                 <div id="qrcode" class="flex justify-center mb-4"></div>
+                <img src="images/QR.jpg" alt="사이트 QR 코드" class="mx-auto mb-3 w-48 h-48 object-contain">
                 <p class="text-sm text-gray-600">QR 코드를 스캔하여 모바일에서 바로 확인하세요!</p>
             </div>
         </div>
@@ -903,7 +904,7 @@
                         <h3 class="text-2xl font-bold mb-4 text-center">📞 바로 전화 상담</h3>
                         <div class="text-center">
                             <p class="text-lg mb-2">제주 향기부동산</p>
-                            <a href="tel:010-5163-5607" class="text-4xl font-extrabold block hover:underline transition duration-300">010-5163-5607</a>
+                            <a href="tel:+821051635607" class="text-4xl font-extrabold block hover:underline transition duration-300">010-5163-5607</a>
                             <p class="text-sm opacity-90 mt-2">평일 9시~21시, 주말 10시~18시</p>
                         </div>
                     </div>
@@ -940,7 +941,7 @@
             
             <div class="p-6 md:p-8 bg-white text-gray-900 rounded-xl shadow-2xl">
                 <p class="text-lg font-semibold mb-2">📞 문의 전화 (매매/전세 상담):제주 향기부동산</p>
-                <a href="tel:01051635607" class="text-4xl md:text-5xl font-extrabold text-emerald-700 block hover:underline">010-5163-5607</a>
+                <a href="tel:+821051635607" class="text-4xl md:text-5xl font-extrabold text-emerald-700 block hover:underline">010-5163-5607</a>
                 <p class="mt-4 text-sm text-gray-600">
                     (문자 문의 시 '곶자왈아이파크 102동 문의'라고 먼저 알려주세요.)
                 </p>
@@ -999,10 +1000,24 @@
             url: 'https://chanjini04b-jpg.github.io/home/'
         };
 
+        // 카카오 SDK 초기화 (안전 가드)
+        (function initKakao(){
+            try {
+                if (typeof Kakao !== 'undefined' && Kakao && !Kakao.isInitialized && Kakao.init) {
+                    // TODO: 실제 JavaScript 키로 교체 필요
+                    Kakao.init('YOUR_KAKAO_JAVASCRIPT_KEY');
+                } else if (typeof Kakao !== 'undefined' && Kakao && Kakao.isInitialized && !Kakao.isInitialized()) {
+                    Kakao.init && Kakao.init('YOUR_KAKAO_JAVASCRIPT_KEY');
+                }
+            } catch (e) {
+                console.warn('Kakao SDK init skipped or failed:', e);
+            }
+        })();
+
         // 카카오톡 공유
         function shareKakao() {
-            // 카카오 SDK 초기화 (실제 앱 키 필요)
-            if (typeof Kakao !== 'undefined') {
+            // 카카오 SDK 사용 가능 시 카카오 링크, 아니면 기본 공유/복사
+            if (typeof Kakao !== 'undefined' && Kakao && Kakao.Link && (!Kakao.isInitialized || (Kakao.isInitialized && Kakao.isInitialized()))) {
                 Kakao.Link.sendDefault({
                     objectType: 'feed',
                     content: {
@@ -1088,26 +1103,27 @@
         function enhanceSEO() {
             // 페이지 제목에 현재 시간 정보 추가 (freshness)
             document.title += ` - ${new Date().toLocaleDateString('ko-KR')} 업데이트`;
-            
-            // 구조화된 데이터 동적 업데이트
-            const structuredData = {
-                "@context": "https://schema.org",
-                "@type": "RealEstateListing",
-                "name": "제주 곶자왈아이파크 102동 302호",
-                "description": shareData.text,
-                "url": shareData.url,
-                "datePosted": new Date().toISOString(),
-                "image": [
-                    "https://chanjini04b-jpg.github.io/home/images/living-room.jpg",
-                    "https://chanjini04b-jpg.github.io/home/images/kitchen.jpg",
-                    "https://chanjini04b-jpg.github.io/home/images/bedroom.jpg"
-                ]
-            };
-            
-            // 기존 JSON-LD 스크립트 업데이트
+
+            // 기존 JSON-LD를 보존하면서 필수 필드만 보강
             const scripts = document.querySelectorAll('script[type="application/ld+json"]');
             if (scripts.length > 0) {
-                scripts[0].textContent = JSON.stringify(structuredData);
+                try {
+                    const original = JSON.parse(scripts[0].textContent || '{}');
+                    const imagesToAdd = [
+                        'https://chanjini04b-jpg.github.io/home/images/living-room.jpg',
+                        'https://chanjini04b-jpg.github.io/home/images/kitchen.jpg',
+                        'https://chanjini04b-jpg.github.io/home/images/bedroom.jpg'
+                    ];
+                    const merged = Object.assign({}, original, {
+                        url: shareData.url,
+                        description: original.description || shareData.text,
+                        datePosted: new Date().toISOString(),
+                        image: Array.from(new Set([...(original.image || []), ...imagesToAdd]))
+                    });
+                    scripts[0].textContent = JSON.stringify(merged);
+                } catch (e) {
+                    console.warn('Failed to merge JSON-LD, keeping original:', e);
+                }
             }
         }
 
