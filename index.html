@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주 곶자왈아이파크 32평 급매 - 집주인 직접 매매/전세 (매매우선)</title>
+    <!-- Tailwind CSS CDN 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* 커스텀 폰트 설정 (Inter를 기본으로 사용) */
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #f8f8f8;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #10b981; /* 에메랄드 그린 */
+            border-radius: 9999px;
+        }
+        /* 이미지 슬라이더 높이 */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            height: 600px; /* 고정 높이 설정 */
+            max-width: 100%;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .slider img {
+            width: 100%;
+            height: 600px; /* 슬라이더 컨테이너와 같은 높이 */
+            flex-shrink: 0;
+            object-fit: cover; /* 이미지 비율 유지하면서 전체 영역 채우기 */
+            object-position: center; /* 이미지 중앙 정렬 */
+        }
+        
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .slider-container {
+                height: 400px; /* 모바일에서는 높이 줄이기 */
+            }
+            .slider img {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slider-container {
+                height: 300px; /* 작은 모바일에서는 더 작게 */
+            }
+            .slider img {
+                height: 300px;
+            }
+        }
+        
+        /* 이미지 로딩 최적화는 HTML 속성으로 처리 */
+        
+        /* 동영상 스타일 */
+        video {
+            border-radius: 12px;
+        }
+        
+        /* 동영상 컨테이너 높이 설정 */
+        .video-container {
+            height: 600px; /* 데스크톱: 600px */
+            max-height: 80vh; /* 화면 높이의 80%를 넘지 않도록 */
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* 동영상 반응형 디자인 */
+        @media (max-width: 1024px) {
+            .video-container {
+                height: 500px; /* 태블릿: 500px */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .video-container {
+                height: 400px; /* 모바일: 400px */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .video-container {
+                height: 300px; /* 작은 모바일: 300px */
+            }
+        }
+        
+        /* 로딩 애니메이션 */
+        .loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* 이미지 최적화 표시 */
+        .slider img[title*="최적화"] {
+            border: 2px solid #10b981;
+        }
+        
+        /* 이미지 호버 효과 */
+        .slider img:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+        
+        /* 이미지 카운터 표시 */
+        .image-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- 헤더 / 히어로 섹션 -->
+    <header class="bg-gray-900 text-white py-12 md:py-20 shadow-xl">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-snug">
+                    제주살이 로망 실현! 곶자왈아이파크 <span class="text-emerald-400">집주인 직거래 및 중개사 협의 가능</span>
+                </h1>
+                <p class="text-xl md:text-2xl font-light mb-6">
+                    [매매우선] 시세 대비 <span class="text-emerald-400"></span>급매 5억</span> / 전세 4억 3천 (중개사 환영)
+                </p>
+                <div class="bg-emerald-600 inline-block p-4 rounded-xl shadow-lg">
+                    <p class="text-lg font-bold">📍 매물 주소: 제주특별자치도 제주시 한경면 저지리 2877 곶자왈아이파크 102동 302호</p>
+                    <p class="mt-2 text-md font-medium">32평 (108㎡) / 3/4층 남동향 / 즉시 입주 가능</p>
+                </div>
+                <a href="#contact" class="mt-8 inline-block bg-white text-gray-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-2xl transition duration-300 transform hover:scale-105 text-lg">
+                    매매/전세 상담 신청 (중개사 협의 환영)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 소개 및 전문적인 장점 분석 섹션 -->
+    <section id="introduction" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-8 max-w-5xl">
+            <h2 class="text-3xl font-bold section-title text-emerald-600 mb-8">집주인이 직접 소개하는 이사 이유와 특별함</h2>
+            
+            <div class="space-y-8">
+                <!-- 집주인 소개글 -->
+                <div class="p-6 bg-gray-50 rounded-xl shadow-md border-l-4 border-emerald-500">
+                    <p class="text-lg leading-relaxed italic text-gray-700">
+                        "저희 가족의 소중한 보금자리였던 이곳을, 제주 생활의 꿈을 가진 새로운 가족에게 인계하고자 합니다.
+                        곶자왈아이파크는 단순한 주거 공간이 아닌, '제주 라이프' 그 자체를 담고 있습니다. 조용한 환경 속에서 제주 국제학교 통학버스 이용이 가능하며, 
+                        사계절 곶자왈 숲을 누릴 수 있는 유일무이한 입지입니다. 내부 컨디션은 최상이며, 넓은 펜트리 공간과 바베큐가 가능한 발코니는 제주를 만끽하기에 부족함이 없습니다. 
+                        급매 조건으로 시세 대비 낮은 가격에 책정했습니다. <b>집주인과 직접 거래 및 공인중개사를 통한 거래 모두 환영합니다. (매매 우선)</b> 진정성 있는 분의 연락을 기다립니다."
+                    </p>
+                    <p class="mt-4 text-right text-sm text-gray-500">- 곶자왈아이파크 102동 302호 집주인 올림</p>
+                </div>
+
+                <!-- SEO 및 추천 장점 -->
+                <h3 class="text-2xl font-bold pt-4 text-emerald-600">전문가가 추천하는 곶자왈아이파크의 독보적인 가치</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-green-50 rounded-xl shadow-md">
+                        <p class="font-bold text-lg mb-2 flex items-center"><svg class="w-6 h-6 mr-2 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> 제주 국제학교 프리미엄 학군 (통학버스 운행)</p>
+                        <p class="text-gray-700">
+                            KIS, BHA, NLCS 등 명문 국제학교들이 모여있는 신화월드 인근과 가까워 자녀들의 안전한 통학 환경이 제공됩니다. 명품 학군 수요를 갖춘 투자 및 실거주 최적의 조건입니다.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-green-50 rounded-xl shadow-md">
+                        <p class="font-bold text-lg mb-2 flex items-center"><svg class="w-6 h-6 mr-2 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg> 생활 편의를 높이는 최고급 커뮤니티</p>
+                        <p class="text-gray-700">
+                            입주민을 위한 <B>조식 서비스</B>와 호텔급 커뮤니티 시설은 제주에서 누릴 수 있는 특별한 혜택입니다. 전 세대 지하 주차장으로 차량 관리 및 보안이 완벽하며, 넓은 펜트리 수납공간이 제공됩니다.
+                        </p>
+                    </div>
+                </div>
+
+                <ul class="grid md:grid-cols-3 gap-4 text-center pt-4">
+                    <li class="p-4 bg-emerald-100 rounded-lg font-medium">✨ 시세보다 저렴한 급매 기회 (매매 우선)</li>
+                    <li class="p-4 bg-emerald-100 rounded-lg font-medium">🌳 곶자왈 뷰를 담은 발코니형 베란다 (바베큐 가능)</li>
+                    <li class="p-4 bg-emerald-100 rounded-lg font-medium">✈️ 제주공항 40분, 신화월드 15분 거리</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 동영상 투어 섹션 -->
+    <section id="video-tour" class="py-16 md:py-24 bg-emerald-50">
+        <div class="container mx-auto px-4 md:px-8 max-w-5xl">
+            <h2 class="text-3xl font-bold section-title text-emerald-600 mb-8">🎬 실제 매물 동영상 투어</h2>
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="relative rounded-xl overflow-hidden shadow-xl video-container">
+                    <video 
+                        controls 
+                        preload="metadata"
+                        poster="images/living-room.jpg">
+                        <source src="images/apartment-tour.mp4" type="video/mp4">
+                        <p class="text-gray-600 p-4">브라우저가 동영상을 지원하지 않습니다.</p>
+                    </video>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-lg text-gray-700 mb-2">📹 <strong>집주인이 직접 촬영한 실제 매물 투어</strong></p>
+                    <p class="text-sm text-gray-600">실제 매물의 분위기와 공간감을 고화질 영상으로 확인해보세요!</p>
+                    <div class="mt-3 flex justify-center items-center space-x-4 text-xs text-gray-500">
+                        <span>🎥 HD 화질</span>
+                        <span>⏱️ 실시간 투어</span>
+                        <span>🏠 전체 공간 포함</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 사진 슬라이드 섹션 -->
+    <section id="gallery" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4 md:px-8 max-w-5xl">
+            <h2 class="text-3xl font-bold section-title text-emerald-600 mb-8">📸 고화질 내부 사진 갤러리</h2>
+            <div class="slider-container">
+                <div class="slider" id="imageSlider">
+                    <!-- 메인 거실 사진들 -->
+                    <img src="images/livingroom1.jpg" alt="거실 전체 뷰 - 최적화됨" class="rounded-xl" loading="eager">
+                    <img src="images/living-room(1).jpg" alt="거실 각도1 - 넓은 공간감" class="rounded-xl" loading="lazy">
+                    <img src="images/living-room(2).jpg" alt="거실 각도2 - 자연광이 풍부한 공간" class="rounded-xl" loading="lazy">
+                    <img src="images/living-room(3).jpg" alt="거실 각도3 - 모던한 인테리어" class="rounded-xl" loading="lazy">
+                    <img src="images/living-room(4).jpg" alt="거실 각도4 - 아늑한 분위기" class="rounded-xl" loading="lazy">
+                    <img src="images/living-room(5).jpg" alt="거실 각도5 - 가구 배치" class="rounded-xl" loading="lazy">
+                    <img src="images/living-room(6).jpg" alt="거실 각도6 - 창가 뷰" class="rounded-xl" loading="lazy">
+                    
+                    <!-- 주방 사진들 -->
+                    <img src="images/kitchen1.jpg" alt="주방 전체 뷰 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/kitchen2.jpg" alt="주방 수납공간 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/kitchen3.jpg" alt="주방 작업대 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/kithen(2).jpg" alt="주방 다른 각도 - 넓은 공간" class="rounded-xl" loading="lazy">
+                    
+                    <!-- 침실 및 방 사진들 -->
+                    <img src="images/bedroom.jpg" alt="메인 침실 - 편안한 분위기" class="rounded-xl" loading="lazy">
+                    <img src="images/secondroom1.jpg" alt="두 번째 방 - 다용도 공간" class="rounded-xl" loading="lazy">
+                    <img src="images/secondroom2.jpg" alt="두 번째 방 각도2" class="rounded-xl" loading="lazy">
+                    <img src="images/secondroom3.jpg" alt="두 번째 방 각도3" class="rounded-xl" loading="lazy">
+                    <img src="images/secondroom4.jpg" alt="두 번째 방 각도4" class="rounded-xl" loading="lazy">
+                    
+                    <!-- 화장실 및 파우더룸 -->
+                    <img src="images/bathroom.jpg" alt="메인 화장실 - 깔끔한 디자인" class="rounded-xl" loading="lazy">
+                    <img src="images/bathroom (2).jpg" alt="화장실 다른 각도" class="rounded-xl" loading="lazy">
+                    <img src="images/dress&powder-room.jpg" alt="드레스룸 및 파우더룸" class="rounded-xl" loading="lazy">
+                    <img src="images/dress&powder-room(1).jpg" alt="드레스룸 수납공간" class="rounded-xl" loading="lazy">
+                    <img src="images/dress&powder-room(2).jpg" alt="파우더룸 세면대" class="rounded-xl" loading="lazy">
+                    
+                    <!-- 발코니 및 베란다 -->
+                    <img src="images/veranda.jpg" alt="베란다 - 바베큐 공간 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/balcony.jpg" alt="발코니 - 넓은 공간" class="rounded-xl" loading="lazy">
+                    <img src="images/view.jpg" alt="창밖 전망 - 아름다운 뷰" class="rounded-xl" loading="lazy">
+                    
+                    <!-- 수납 및 기타 공간 -->
+                    <img src="images/closet.jpg" alt="수납공간 - 넓은 클로젯" class="rounded-xl" loading="lazy">
+                    <img src="images/pantry.jpg" alt="펜트리 - 주방 수납공간" class="rounded-xl" loading="lazy">
+                    
+                    <!-- 편의시설 -->
+                    <img src="images/amenities1.jpg" alt="아파트 편의시설 1 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/amenities2.jpg" alt="아파트 편의시설 2 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/amenities4.jpg" alt="아파트 편의시설 4 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/amenities5.jpg" alt="아파트 편의시설 5 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/amenities8.jpg" alt="아파트 편의시설 8" class="rounded-xl" loading="lazy">
+                    
+                    <!-- 주차장 및 외부 -->
+                    <img src="images/parking lot entryway.jpg" alt="주차장 입구 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/building-exterior.jpg" alt="아파트 외관" class="rounded-xl" loading="lazy">
+                    
+                    <!-- 평면도 -->
+                    <img src="images/layout1.jpg" alt="평면도 1 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/layout2.jpg" alt="평면도 2 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/layout3.jpg" alt="평면도 3 - 최적화됨" class="rounded-xl" loading="lazy">
+                    <img src="images/floor-plan.jpg" alt="상세 평면도" class="rounded-xl" loading="lazy">
+                </div>
+                
+                <!-- 슬라이드 버튼 -->
+                <button onclick="prevSlide()" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-200 focus:outline-none z-10">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button onclick="nextSlide()" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-200 focus:outline-none z-10">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                
+                <!-- 이미지 카운터 -->
+                <div class="image-counter" id="imageCounter">
+                    1 / 35
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 위치 지도 및 주변 환경 섹션 -->
+    <section id="location" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-8 max-w-5xl">
+            <h2 class="text-3xl font-bold section-title text-emerald-600 mb-8">제주의 중심, 편리한 입지</h2>
+            
+            <div class="mb-10 rounded-xl overflow-hidden shadow-xl">
+                <iframe 
+                    src="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%20%EA%B3%B6%EC%9E%90%EC%99%80%EC%95%84%EC%9D%B4%ED%8C%8C%ED%81%AC?c=16.53,0,0,0,dh" 
+                    width="100%" 
+                    height="500" 
+                    frameborder="0" 
+                    allowfullscreen="" 
+                    class="rounded-xl">
+                </iframe>
+            </div>
+
+            <h3 class="text-2xl font-bold section-title text-gray-700">주변 유명 관광지 및 인프라 (차량 이동 시간)</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition duration-200">
+                    <span class="text-2xl mr-3">☕</span>
+                    <div>
+                        <p class="font-bold">저지 문화예술인마을 & 오설록</p>
+                        <p class="text-sm text-gray-600">5분 ~ 10분 이내 (카페, 갤러리)</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition duration-200">
+                    <span class="text-2xl mr-3">🎢</span>
+                    <div>
+                        <p class="font-bold">제주 신화월드</p>
+                        <p class="text-sm text-gray-600">15분 이내 (테마파크, 쇼핑, 외식)</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition duration-200">
+                    <span class="text-2xl mr-3">🏫</span>
+                    <div>
+                        <p class="font-bold">제주 국제학교 단지</p>
+                        <p class="text-sm text-gray-600">15분 이내 (KIS, BHA 등 통학버스 이용)</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition duration-200">
+                    <span class="text-2xl mr-3">🖼️</span>
+                    <div>
+                        <p class="font-bold">제주 현대미술관 & 렛츠런파크</p>
+                        <p class="text-sm text-gray-600">10분 ~ 20분 이내 (문화생활)</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition duration-200">
+                    <span class="text-2xl mr-3">🛍️</span>
+                    <div>
+                        <p class="font-bold">하나로마트 및 생활 편의시설</p>
+                        <p class="text-sm text-gray-600">5분 ~ 10분 이내</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition duration-200">
+                    <span class="text-2xl mr-3">✈️</span>
+                    <div>
+                        <p class="font-bold">제주 국제공항</p>
+                        <p class="text-sm text-gray-600">40분 이내</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 최종 문의/CTA 섹션 -->
+    <section id="contact" class="py-16 md:py-20 bg-emerald-600 text-white">
+        <div class="container mx-auto px-4 md:px-8 max-w-3xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">집주인 직거래 및 중개사 거래 가능! 합리적인 매매 기회를 잡으세요.</h2>
+            <p class="text-xl mb-6">시세 대비 낮은 가격으로 매매 우선 상담합니다.</p>
+            
+            <div class="p-6 md:p-8 bg-white text-gray-900 rounded-xl shadow-2xl">
+                <p class="text-lg font-semibold mb-2">📞 문의 전화 (매매/전세 상담):제주 향기부동산</p>
+                <a href="tel:01012345678" class="text-4xl md:text-5xl font-extrabold text-emerald-700 block hover:underline">010-5163-5607</a> <!-- 가상 번호 -->
+                <p class="mt-4 text-sm text-gray-600">
+                    (문자 문의 시 '곶자왈아이파크 102동 문의'라고 먼저 알려주세요.)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-gray-400 py-6">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2024. 곶자왈아이파크 102동 302호 매물. 집주인 직거래 및 중개사 협의 가능.</p>
+        </div>
+    </footer>
+
+    <!-- 자바스크립트: 이미지 슬라이더 기능 -->
+    <script>
+        let slideIndex = 0;
+        const slider = document.getElementById('imageSlider');
+        const slides = slider ? slider.getElementsByTagName('img') : [];
+        
+        // 슬라이더가 있을 때만 초기화
+        if (slider) {
+            updateSlider();
+            // 5초마다 자동 슬라이드 (선택 사항)
+            setInterval(nextSlide, 5000); 
+        }
+
+        function updateSlider() {
+            if (slides.length > 0) {
+                // Ensure index is valid
+                if (slideIndex >= slides.length) {
+                    slideIndex = 0;
+                }
+                if (slideIndex < 0) {
+                    slideIndex = slides.length - 1;
+                }
+                // Calculate and apply the transform style
+                slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+            }
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            slideIndex--;
+            updateSlider();
+        }
+        
+        // window.onload 함수는 그대로 유지하거나 제거해도 무방합니다.
+    </script>
+</body>
+</html>
